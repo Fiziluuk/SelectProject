@@ -1,7 +1,6 @@
 package com.fizi.selectproject.repository.impl;
 
-import com.fizi.selectproject.repository.BaseRepository;
-
+import com.multiselect.demo.example.repository.BaseRepository;
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 
@@ -16,8 +15,9 @@ public class BaseRepositoryImpl<T,ID> extends SimpleJpaRepository<T,ID> implemen
         this.entityManager = entityManager;
     }
 
-  /*  @Override
-    public void refresh(T t) {
+    @Override
+    public T refresh(T t) {
         entityManager.refresh(t);
-    }*/
+        return t;
+    }
 }

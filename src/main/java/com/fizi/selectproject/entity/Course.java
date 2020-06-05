@@ -1,25 +1,47 @@
 package com.fizi.selectproject.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
+@JsonIgnoreProperties({"studentCourse"})
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int cno;
-    private String Cname;
+    private int id;
+    @Size(min = 2, max = 10,message = "请输入正确的课程名称")
+    private String name;
 
-    @OneToMany(mappedBy = "course")
-    private List<SC> sc;
+    //private int grade;
 
-    @OneToMany(mappedBy = "course")
-    private List<DC> dc;
+    private double weight;
+
+    /*@OneToMany(mappedBy = "course", cascade = CascadeType.REMOVE)
+    private List<SC> studentCourses;*/
+
+    @ManyToOne
+    private Direction direction;
+    @ManyToOne
+    private Teacher teacher;
+
+    @Column(columnDefinition = "timestamp default current_timestamp",
+            insertable = false,
+            updatable = false)
+    private LocalDateTime insertTime;
+
+    @Column(columnDefinition = "timestamp default current_timestamp",
+            insertable = false,
+            updatable = false)
+    private LocalDateTime updateTime;
+
+
 }

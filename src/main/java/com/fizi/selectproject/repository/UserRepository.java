@@ -1,14 +1,15 @@
 package com.fizi.selectproject.repository;
 
-import com.fizi.selectproject.entity.Teacher;
+
+import com.fizi.selectproject.entity.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TeacherRepository extends BaseRepository<Teacher,Integer> {
+public interface UserRepository extends BaseRepository<User,Integer> {
 
+    @Query("from User u where u.number=:number ")
+    User find(@Param("number") int number);
 
-    @Query("from Teacher t where t.id=:tid")
-    Teacher find(@Param("tid") int tid);
 }
