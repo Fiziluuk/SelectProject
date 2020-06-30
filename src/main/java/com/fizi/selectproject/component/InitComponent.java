@@ -1,9 +1,10 @@
 package com.fizi.selectproject.component;
 
 
-import com.multiselect.demo.example.entity.Teacher;
-import com.multiselect.demo.example.entity.User;
-import com.multiselect.demo.example.service.UserService;
+
+import com.fizi.selectproject.entity.Teacher;
+import com.fizi.selectproject.entity.User;
+import com.fizi.selectproject.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,8 @@ public class InitComponent implements InitializingBean {
             Teacher t = new Teacher();
             //级联持久化
             t.setUser(u);
+            t.setStuCap(0);
+            t.setStuNum(0);
             userService.addTeacher(t);
         }
 

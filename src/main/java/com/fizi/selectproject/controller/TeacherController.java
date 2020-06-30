@@ -2,11 +2,12 @@ package com.fizi.selectproject.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.multiselect.demo.example.component.RequestComponent;
-import com.multiselect.demo.example.entity.*;
-import com.multiselect.demo.example.service.StudentService;
-import com.multiselect.demo.example.service.TeacherService;
-import com.multiselect.demo.example.service.UserService;
+
+import com.fizi.selectproject.component.RequestComponent;
+import com.fizi.selectproject.entity.*;
+import com.fizi.selectproject.service.StudentService;
+import com.fizi.selectproject.service.TeacherService;
+import com.fizi.selectproject.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
